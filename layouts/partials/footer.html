@@ -3,57 +3,31 @@
     <div class="columns">
       <div class="column">
         <!-- <div class="footer-logo"> -->
-            {{- $out_fo  := "footer.svg" -}}
-            {{- $img_n   := .Site.Params.footer.logo -}}
-            {{- $type    := lower (substr $img_n (sub (len $img_n) 3) (len $img_n)) -}}
-            {{- $img     := resources.Get $img_n -}}
-            {{- if eq $type "svg" -}}
-              {{- $img    = $img | resources.ExecuteAsTemplate $out_fo . }}
-            {{- end -}}
-            <img src="{{- $img.Permalink | relURL -}}" alt="">
+        {{- $out_fo  := "footer.svg" -}}
+        {{- $img_n   := .Site.Params.footer.logo -}}
+        {{- $type    := lower (substr $img_n (sub (len $img_n) 3) (len $img_n)) -}}
+        {{- $img     := resources.Get $img_n -}}
+        {{- if eq $type "svg" -}}
+        {{- $img    = $img | resources.ExecuteAsTemplate $out_fo . }}
+        {{- end -}}
+        <img src="{{- $img.Permalink | relURL -}}" alt="">
         <!-- </div> -->
       </div>
-      
-    <div class="column">
-        <div class="footer-column">
-          <div class="footer-header">
-              <h3>شیرازلاگ</h3>
-          </div>
-          <ul class="link-list">
-            <li>
-                <a href="{{- printf "credits" | relURL -}}">
-                  <span class="icon"><i class="fa fa-cube"></i></span>
-                  Credits
-                </a>
-              </li>
-            <li>
-              <a href="{{- printf "tags" | relURL -}} ">
-                <span class="icon"><i class="fa fa-tag"></i></span> 
-                All Tags
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    
+
       <div class="column">
         <div class="footer-column">
           <div class="footer-header">
-              <h3>تماس با ما</h3>
+            <h3>شیرازلاگ</h3>
           </div>
           <ul class="link-list">
+            {{ range .Site.Params.Navbar.Menu }}
             <li>
-              <a href="{{ .Site.Params.footer.linkedin }}" target="_blank">
-                <span class="icon"><i class="fa fa-linkedin"></i></span>
-                Linkedin
+              <a href="{{ .url }}">
+                <span class="icon"><i class="fa fa-{{ .icon }}"></i></span>
+                {{ .title }}
               </a>
             </li>
-            <li>
-              <a href="mailto:{{ .Site.Params.footer.email }}" target="_blank">
-                <span class="icon"><i class="fa fa-envelope"></i></span>
-                {{ .Site.Params.footer.email }}
-              </a>
-            </li>
+            {{ end }}
           </ul>
         </div>
       </div>
@@ -61,7 +35,25 @@
       <div class="column">
         <div class="footer-column">
           <div class="footer-header">
-              <h3>کپی رایت</h3>
+            <h3>تماس با ما</h3>
+          </div>
+          <ul class="link-list">
+            {{ range .Site.Params.Footer.Social }}
+            <li>
+              <a href="{{ .url }}" target="_blank">
+                <span class="icon"><i class="fa fa-{{ .icon }}"></i></span>
+                {{ .title }}
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+
+      <!-- <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+            <h3>کپی رایت</h3>
           </div>
           <ul class="link-list">
             <li>
@@ -72,7 +64,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>
