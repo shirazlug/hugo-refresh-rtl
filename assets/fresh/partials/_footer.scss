@@ -15,6 +15,7 @@ footer.footer-dark {
     }
     .footer-column {
         .footer-header h3 {
+            font-family: $fontFooter, 'serif' !important;
             font-weight:500;
             font-size: 1.2rem;
             text-transform: uppercase;
@@ -23,6 +24,7 @@ footer.footer-dark {
         }
         ul.link-list {
             line-height: 40px;
+            font-family: $fontFooter, 'serif' !important;
             font-size: 1.1rem;
             a {
                 color: $light-blue-grey;
