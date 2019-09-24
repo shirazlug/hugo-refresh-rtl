@@ -1,8 +1,9 @@
 {{- define "main" -}}
+{{- $baseurl := .Site.BaseURL -}}
 {{- $page404    := .Site.Params.pagNotFound }}
 {{- $title      := index $page404 "title" }}
 {{- $subtitle   := index $page404 "subtitle" }}
-{{- $image      := index $page404 "image" }}
+{{- $image      := printf "%v%s" $baseurl .Site.Params.pagNotFound.image }}
 <section class="hero is-fullheight is-default is-bold">
   {{/* partial "navbar.html" . */}}
   {{/* partial "navbar-clone.html" . */}}
@@ -19,12 +20,9 @@
             </h2>
             {{- end -}}
           </div>
+
           <div class="column is-5 is-offset-1">
-            <figure class="image">
-                {{- $img := resources.Get $image -}}
-                <img src="{{- $img.Permalink | relURL -}}" 
-                     style="width:{{- .Site.Params.pagNotFound.imageWidth -}}" alt="Myself">
-            </figure>
+                <img src="{{- $image -}}" width="220px" alt="Myself">
           </div>
         </div>
       </div>
