@@ -15,3 +15,21 @@
   height: 4.5em;
   text-overflow: ellipsis;
 }
+
+.homepage-links{
+  font-weight: bold;
+}
+
+.homepage-links:hover{
+  opacity: .6;
+}
+
+.next-session{
+  height: 400px;
+
+}
+
+.location{
+  width: 400px;
+  height: 400px;
+}
