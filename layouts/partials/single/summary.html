@@ -15,9 +15,9 @@
     <h3 class="title is-5 summary-title">
       {{ .Params.title }}
     </h3>
-    <p class="summary-summary">
-      {{- if .Params.summary -}}
-        {{- .Params.summary -}}
+    <p class="summary-summary shabnam">
+      {{- if .Params.description -}}
+        {{- .Params.description -}}
       {{- else }}
         {{- .Plain -}}
       {{- end -}}
