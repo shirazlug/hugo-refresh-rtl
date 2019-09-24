@@ -13,30 +13,28 @@
     {{- $image      := printf "%v%s" $baseurl .Site.Params.homepage.logo -}}
     <div class="hero-body">
         <div class="container">
-            <div class="columns">
-                <div class="column is-4 is-offset-1 landing-caption has-text-centered">
-                    <div class="column">
-                        <a href="#" class="">
-                            <img src="{{- $image -}}" width="220px" alt="">
-                        </a>
-                    </div>
+            <div class="column landing-caption has-text-centered">
+                <div class="column">
+                    <a href="#">
+                        <img src="{{- $image -}}" width="220px" alt="">
+                    </a>
+                </div>
 
-                    <div class="column">
-                        <h1 class="title is-1 is-bold">
-                            {{- $title -}}
-                        </h1>
-                        {{- with $subtitle -}}
-                        <h2 class="subtitle is-6 is-muted">
-                            {{ . }}
-                        </h2>
-                        {{- end -}}
-                    </div>
-                </div>
-                <div class="column is-6 is-offset-1">
-                    <h1 class="subtitle is-4 is-muted has-text-justified">
-                        {{- $description -}}
+                <div class="column">
+                    <h1 class="title is-1 is-bold">
+                        {{- $title -}}
                     </h1>
+                    {{- with $subtitle -}}
+                    <h2 class="subtitle is-6 is-muted">
+                        {{ . }}
+                    </h2>
+                    {{- end -}}
                 </div>
+            </div>
+            <div class="column">
+                <h1 class="subtitle is-4 is-muted has-text-justified">
+                    {{- $description -}}
+                </h1>
             </div>
             <hr>
 
@@ -45,11 +43,12 @@
                 <!-- Registeration -->
                 <div class="column">
                     <div class="column">
-                        <a class="subtitle homepage-links is-6" href="https://evnd.co/bgZP3" target="_blank">ثبت نام جلسه آینده
+                        <a class="subtitle homepage-links is-6" href="https://evnd.co/bgZP3" target="_blank">ثبت نام
+                            جلسه آینده
                             شیرازلاگ</a>
                     </div>
                     <div class="column">
-                        <a class="subtitle is-6" href="https://evnd.co/bgZP3" target="_blank">
+                        <a href="https://evnd.co/bgZP3" target="_blank">
                             <img class="next-session" src="{{- $next_session -}}">
                         </a>
                     </div>
