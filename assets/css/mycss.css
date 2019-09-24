@@ -33,3 +33,13 @@
   width: 400px;
   height: 400px;
 }
+
+.section-title{
+  border-bottom: 5px solid #F39200;
+  border-radius: 5px;
+  display: inline;
+}
+
+.divider{
+  display: none !important;
+}
