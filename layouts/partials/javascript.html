@@ -4,12 +4,13 @@
 {{- $js4 := resources.Get "js/fresh_new.js"                           }}
 {{- $js5 := resources.Get "js/highlight.9.15.8.pack.js"               }}
 {{- $js6 := resources.Get "js/highlightjs-line-numbers.2.7.0.min.js"  }}
+{{- $js7 := resources.Get "js/fontawesome-all.min.js"  }}
 
 {{/*  Attempt to put all js in one file  */}}
 {{/*  https://discourse.gohugo.io/t/bundle-many-resources/13497  */}}
 
 {{- $.Scratch.Set "jslibs" slice -}}
-{{- $libs := slice $js1 $js2 $js3 $js4 $js5 $js6 -}}
+{{- $libs := slice $js1 $js2 $js3 $js4 $js5 $js6 $js7 -}}
 {{- range $libs -}}
     {{- $.Scratch.Add "jslibs" . -}}
 {{- end -}}
@@ -18,7 +19,7 @@
 
 {{/*  or  */}}
 
-{{- $jsCombined := slice $js1 $js2 $js3 $js4 $js5 $js6 | resources.Concat "js/combined_all.js" -}}
+{{- $jsCombined := slice $js1 $js2 $js3 $js4 $js5 $js6 $js7 | resources.Concat "js/combined_all.js" -}}
 {{- $jsmin      := $jsCombined | resources.Minify | resources.Fingerprint -}}
 
 {{/*  end  */}}
@@ -30,6 +31,7 @@
     {{- $js4 = $js4 | resources.Minify }}
     {{- $js5 = $js5 | resources.Minify }}
     {{- $js6 = $js6 | resources.Minify }}
+    {{- $js7 = $js7 | resources.Minify }}
 {{- end -}}
 
 {{- if .Site.Params.jsFingerprint -}}
@@ -39,6 +41,7 @@
     {{- $js4 = $js4 | resources.Fingerprint }}
     {{- $js5 = $js5 | resources.Fingerprint }}
     {{- $js6 = $js6 | resources.Fingerprint }}
+    {{- $js7 = $js7 | resources.Fingerprint }}
 {{- end -}}
 
 {{- if .Site.Params.jsFingerprint -}}
@@ -49,6 +52,7 @@
 <script src="{{- $js4.Permalink | relURL -}}" integrity="{{- $js4.Data.Integrity -}}"></script>
 <script src="{{- $js5.Permalink | relURL -}}" integrity="{{- $js5.Data.Integrity -}}"></script>
 <script src="{{- $js6.Permalink | relURL -}}" integrity="{{- $js6.Data.Integrity -}}"></script>
+<script src="{{- $js7.Permalink | relURL -}}" integrity="{{- $js7.Data.Integrity -}}"></script>
 
 {{- else -}}
 
@@ -58,6 +62,7 @@
 <script src="{{- $js4.Permalink | relURL -}}"></script>
 <script src="{{- $js5.Permalink | relURL -}}"></script>
 <script src="{{- $js6.Permalink | relURL -}}"></script>
+<script src="{{- $js7.Permalink | relURL -}}"></script>
 
 {{- end -}}
 

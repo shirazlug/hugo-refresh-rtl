@@ -16,7 +16,7 @@
             {{ range .Site.Params.Navbar.Menu }}
             <li>
               <a href="{{ .url }}">
-                <span class="icon"><i class="fa fa-{{ .icon }}"></i></span>
+                <span class="icon"><i class="fas fa-{{ .icon }}"></i></span>
                 {{ .title }}
               </a>
             </li>
@@ -34,7 +34,7 @@
             {{ range .Site.Params.Footer.Social }}
             <li>
               <a href="{{ .url }}" target="_blank">
-                <span class="icon"><i class="fa fa-{{ .icon }}"></i></span>
+                <span class="icon"><i class="{{ .icon }}"></i></span>
                 {{ .title }}
               </a>
             </li>
