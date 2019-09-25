@@ -1,3 +1,17 @@
+/* Shabnam Font Face */
+@font-face {
+  font-family: 'Shabnam';
+  src: url('../fonts/shabnam.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Shabnam Class */
+.shabnam {
+  font-family: "Shabnam";
+}
+
+/* My Custom Styles */
 .summary-title{
   position: relative;
   margin: 10px 0;
@@ -18,6 +32,7 @@
 
 .homepage-links{
   font-weight: bold;
+  font-family: "Shabnam";
 }
 
 .homepage-links:hover{
@@ -38,12 +53,9 @@
   border-bottom: 5px solid #F39200;
   border-radius: 5px;
   display: inline;
+  font-family: "Shabnam";
 }
 
 .divider{
   display: none !important;
-}
-
-.shabnam{
-  font-family: "Shabnam"
 }

@@ -26,7 +26,7 @@
 {{- $css  := resources.Get $sass | resources.ExecuteAsTemplate $scss . | toCSS $cssOpts -}}
 {{- $css1 := resources.Get "css/monokai-sublime.9.15.8.min.css" -}}
 {{- $css2 := resources.Get "css/icons.css" -}}
-{{- $css3 := resources.Get "css/mycss.css" -}}
+{{- $css3 := resources.Get "css/styles.css" -}}
 
 {{- if .Site.Params.cssMinify -}}
 
