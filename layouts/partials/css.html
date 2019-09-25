@@ -14,8 +14,9 @@
 {{- $fontUrl2  := printf "https://fonts.googleapis.com/css?family=%s" $font2 -}}
 {{- $fontUrl3  := printf "https://fonts.googleapis.com/css?family=%s" $font3 -}}
 
-{{- $favico := resources.Get "images/favicon.png" -}}
-<link rel="icon" type="image/png" href="{{- $favico.Permalink | relURL -}}" />
+{{- $baseurl := .Site.BaseURL -}}
+{{- $favicon := printf "%v%s" $baseurl .Site.Params.favicon -}}
+<link rel="icon" type="image/png" href="{{- $favicon -}}" />
 {{/*  <link rel="icon" type="image/png" href="{{- "images/favicon.png" | relURL -}}" />  */}}
 
 <link href="{{- $fontUrl1 -}}" rel="stylesheet">
