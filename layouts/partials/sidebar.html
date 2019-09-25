@@ -1,14 +1,8 @@
 <div class="sidebar" dir="ltr">
   <div class="sidebar-header">
-    {{- $out_fo  := "sidebar.svg" -}}
-    {{- $img_n   := .Site.Params.sidebar.logo -}}
-    {{- $type    := lower (substr $img_n (sub (len $img_n) 3) (len $img_n)) -}}
-    {{- $img     := resources.Get $img_n -}}
-    {{- if eq $type "svg" -}}
-      {{- $img    = $img | resources.ExecuteAsTemplate $out_fo . }}
-    {{- end -}}
-    <img src="{{- $img.Permalink | relURL -}}" alt="">
-    {{/*  <img src="{{- printf "/images/%s" $logo | absURL -}}">  */}}
+    {{- $baseurl := .Site.BaseURL -}}
+    {{- $logo := printf "%v%s" $baseurl .Site.Params.Sidebar.logo -}}
+    <img src="{{- $logo -}}">
     <a class="sidebar-close" href="javascript:void(0);">
       <i data-feather="x"></i>
     </a>
