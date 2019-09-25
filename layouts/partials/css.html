@@ -10,18 +10,20 @@
 {{/*  {{- $fontUrl1     := printf "https://fonts.googleapis.com/css?family=%s:%s" $font1 $fontSizes -}}
 {{- $fontUrl2     := printf "https://fonts.googleapis.com/css?family=%s:%s" $font2 $fontSizes -}}
 {{- $fontUrl3     := printf "https://fonts.googleapis.com/css?family=%s:%s" $font3 $fontSizes -}}  */}}
-{{- $fontUrl1  := printf "https://fonts.googleapis.com/css?family=%s" $font1 -}}
+{{/* {{- $fontUrl1  := printf "https://fonts.googleapis.com/css?family=%s" $font1 -}}
 {{- $fontUrl2  := printf "https://fonts.googleapis.com/css?family=%s" $font2 -}}
-{{- $fontUrl3  := printf "https://fonts.googleapis.com/css?family=%s" $font3 -}}
+{{- $fontUrl3  := printf "https://fonts.googleapis.com/css?family=%s" $font3 -}} */}}
 
 {{- $baseurl := .Site.BaseURL -}}
 {{- $favicon := printf "%v%s" $baseurl .Site.Params.favicon -}}
 <link rel="icon" type="image/png" href="{{- $favicon -}}" />
 {{/*  <link rel="icon" type="image/png" href="{{- "images/favicon.png" | relURL -}}" />  */}}
 
+{{/* 
 <link href="{{- $fontUrl1 -}}" rel="stylesheet">
 <link href="{{- $fontUrl2 -}}" rel="stylesheet">
 <link href="{{- $fontUrl3 -}}" rel="stylesheet">
+*/}}
 
 {{- $css  := resources.Get $sass | resources.ExecuteAsTemplate $scss . | toCSS $cssOpts -}}
 {{- $css1 := resources.Get "css/monokai-sublime.9.15.8.min.css" -}}
