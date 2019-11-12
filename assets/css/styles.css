@@ -41,7 +41,10 @@
 
 .next-session{
   height: 400px;
+}
 
+.section-poster{
+  text-align: center;
 }
 
 .location{
