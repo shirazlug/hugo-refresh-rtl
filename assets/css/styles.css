@@ -71,3 +71,11 @@
   top: 0.15rem;
   position: relative;
 }
+
+.column{
+  max-width:100%;	
+}
+
+code {
+  direction:ltr;
+}  
