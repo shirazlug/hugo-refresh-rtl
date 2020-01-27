@@ -1,10 +1,13 @@
 ---
-title: ""
+title: "{{ replace .TranslationBaseName "session" "جلسه "}}"
 author: ""
-draft: true
 date: "yyyy-mm-dd"
 description: ""
 weight: -1
-summaryImage: ""
+summaryImage: "/path/to/poster"
+images: []
+series: []
 readmore: false
+draft: true
 ---
+[![The alt-attribute of the poster](/path/to/poster)](/path/to/poster)
