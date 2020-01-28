@@ -5,8 +5,8 @@ date: "yyyy-mm-dd"
 description: ""
 weight: -1
 summaryImage: "/path/to/poster"
+tags: []
 images: []
-series: []
 readmore: false
 draft: true
 ---
