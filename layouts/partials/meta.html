@@ -1,6 +1,8 @@
 {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" -}}
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-<meta http-equiv="x-ua-compatible" content="ie=edge"/>
-<meta name="keywords" content="{{ if eq $url '/' }}{{ .Site.Params.KeyWords  }}{{ else }}{{ range .Params.tags }}{{ . }},{{ end }}{{ end }}"/>
-{{ template "_internal/opengraph.html" . }}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<title>{{.Title}}</title>
+<meta name="description" content={{.Description}}/>
+<!-- <meta name="keywords" content="{{ if eq $url '/' }}{{ .Site.Params.KeyWords  }}{{ else }}{{ range .Params.tags }}{{ . }},{{ end }}{{ end }}" />  -->
+<meta name="keywords" content={{.Keywords}} /> {{ template "_internal/opengraph.html" . }}
