@@ -3,6 +3,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 <title>{{.Title}}</title>
-<meta name="description" content={{.Description}}/>
+{{ if .Description }}
+<meta name="description" content="{{ .Description }}"> {{ else if .IsPage }}
+<meta name="description" content="{{ .Summary | plainify }}"> {{ else if eq .URL "/"}}
+<meta name="description" content="به شیرازلاگ خوش آمدید :) لاگ به معنی گروه کاربران گنو/لینوکس است و از افراد مختلف که به منظور تبادل اطلاعات در حوزه‌ی نرم‌افزارهای آزاد و متن‌باز دور هم جمع می‌شوند، "> {{ else if eq .URL "/posts/"}}
+<meta name="description" content="پست های آزاد در شیرازلاگ"> {{ else if eq .URL "/sessions/"}}
+<meta name="description" content="جلسات شیرازلاگ"> {{ else if eq .URL "/about/"}}
+<meta name="description" content="درباره شیرازلاگ">{{ else if eq .URL "/news/"}}
+<meta name="description" content="اخبار شیرازلاگ"> {{ else }}
+<meta name="description" content="به شیرازلاگ خوش آمدید :) لاگ به معنی گروه کاربران گنو/لینوکس است و از افراد مختلف که به منظور تبادل اطلاعات در حوزه‌ی نرم‌افزارهای آزاد و متن‌باز دور هم جمع می‌شوند، "> {{ end }}
+
 <!-- <meta name="keywords" content="{{ if eq $url '/' }}{{ .Site.Params.KeyWords  }}{{ else }}{{ range .Params.tags }}{{ . }},{{ end }}{{ end }}" />  -->
-<meta name="keywords" content={{.Keywords}} /> {{ template "_internal/opengraph.html" . }}
+<!-- <meta name="keywords" content={{.Keywords}} /> -->
+
+
+{{ template "_internal/opengraph.html" . }} {{ template "_internal/twitter_cards.html" . }}
