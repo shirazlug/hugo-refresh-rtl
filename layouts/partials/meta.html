@@ -1,9 +1,11 @@
 {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" -}}
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta http-equiv="x-ua-compatible" content="ie=edge" />
-<title>{{.Title}}</title>
-{{ if .Description }}
+<meta http-equiv="x-ua-compatible" content="ie=edge" /> {{ if .Title }}
+<title>{{ .Title }}</title>
+{{ end }} {{- $section := .Section -}} {{ range .Site.Params.navbar.menu }} {{ if eq $section .name }}
+<title>{{ .title }}</title>
+{{ end }} {{ end }} {{ if .Description }}
 <meta name="description" content="{{ .Description }}"> {{ else if eq .URL "/"}}
 <meta name="description" content="به شیرازلاگ خوش آمدید :) لاگ به معنی گروه کاربران گنو/لینوکس است و از افراد مختلف که به منظور تبادل اطلاعات در حوزه‌ی نرم‌افزارهای آزاد و متن‌باز دور هم جمع می‌شوند، "> {{ else if eq .URL "/posts/"}}
 <meta name="description" content="پست های آزاد در شیرازلاگ"> {{ else if eq .URL "/sessions/"}}
