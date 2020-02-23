@@ -4,17 +4,22 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
 <!-- Title -->
-{{ if .Title }}
-<title>{{ .Title }} | شیرازلاگ</title>
+{{ if eq .URL "/" }}
+<title>{{.Site.Title }}</title>
 
-{{ else }}
-
+{{else if or (eq .URL "/posts/")  (eq .URL "/sessions/") (eq .URL "/about/") (eq .URL "/news/")}}
 {{- $section := .Section -}}
 {{ range .Site.Params.navbar.menu }}
 {{ if eq $section .name }}
-<title>{{ .title }}</title>
-{{ end }} {{ end }} {{ end }}
+<title>{{ .title }} |شیرازلاگ</title>
+{{ end }} {{ end }} 
 
+{{ else if .Title }}
+<title>{{ .Title }} | شیرازلاگ</title>
+
+{{ else }}
+<title>{{ .Site.Title }}</title>
+{{end}}
 
 <!-- Metadescription -->
 {{ if .Description }}
