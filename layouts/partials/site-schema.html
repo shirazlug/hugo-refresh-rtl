@@ -4,14 +4,14 @@
   "@context": "http://schema.org",
   "@type": "WebSite",
   "url": "{{ .Site.BaseURL }}",
-  {{ if .Site.Author.name -}}
+  {{ if .Site.Params.author -}}
   "author": {
     "@type": "Person",
-    "name": "{{ .Site.Author.name }}"
+    "name": "{{ .Site.Params.author }}"
   },
   {{- end }}
-  {{ if .Site.Params.description -}}
-  "description": "{{ .Site.Params.description }}",
+  {{ if .Site.Params.homepage.description -}}
+  "description": "{{ .Site.Params.homepage.description }}",
   {{- end }}
   {{ with .Site.Params.image -}}
   "image": "{{ .url | absURL }}",
