@@ -1,34 +1,26 @@
 {{- $numberOfDefaultImages := 4 -}}
 <div class="column is-4">
-  <div class="box">
-    <figure class="image is-3by3">
-      {{- $image := "" -}}
-      {{- $baseurl := .Site.BaseURL -}}
-      {{- if .Params.summaryImage -}}
-        {{- $image = printf "%v%s" $baseurl .Params.summaryImage -}}
-      {{ else }}
-        {{- $image = printf "%v%s" $baseurl .Site.Params.summary.defaultImage -}}
-      {{- end }}
+    <div class="box">
+        <figure class="image is-3by3">
+            {{- $image := "" -}} {{- $baseurl := .Site.BaseURL -}} {{- if .Params.summaryImage -}}
+            {{- $image = printf "%v%s" $baseurl .Params.summaryImage -}} {{ else }}
+            {{- $image = printf "%v%s" $baseurl .Site.Params.summary.defaultImage -}} {{- end }}
 
-      <a href="{{- .Permalink | relURL -}}"><img src="{{- $image -}}" alt=""></a>
-    </figure>
-    <h3 class="title is-5 summary-title">
-      {{ .Params.title }}
-    </h3>
-    <p class="summary-summary shabnam">
-      {{- if .Params.description -}}
-        {{- .Params.description -}}
-      {{- else }}
-        {{- .Plain -}}
-      {{- end -}}
-    </p>
+            <a href="{{- .Permalink | relURL -}}"><img src="{{- $image -}}" alt=""></a>
+        </figure>
+        <h3 class="title is-5 summary-title">
+            {{ .Params.title }}
+        </h3>
+        <p class="summary-summary shabnam">
+            {{- if .Params.subtitle -}} {{- .Params.subtitle -}} {{- else }} {{- .Plain -}} {{- end -}}
+        </p>
 
-    {{- if .Params.readmore -}}
-    <div class="action has-text-left">
-      <a href="{{- .Permalink | relURL -}}" class="button is-primary shabnam">
-        بیشتر بخوانید
-      </a>
+        {{- if .Params.readmore -}}
+        <div class="action has-text-left">
+            <a href="{{- .Permalink | relURL -}}" class="button is-primary shabnam">
+                بیشتر بخوانید
+            </a>
+        </div>
+        {{- end -}}
     </div>
-    {{- end -}}
-  </div>
 </div>
