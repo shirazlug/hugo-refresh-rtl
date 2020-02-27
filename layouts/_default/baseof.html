@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}" dir="rtl">
-  <head itemscope itemtype="{{ .Site.BaseURL }}"> 
-    {{- partial "meta.html" . -}}
-    
-    {{ partial "site-schema.html" . }}    
-    <!-- <title>{{- block "title" . -}}{{- .Site.Title -}}{{- end -}}</title> -->
-    <link rel="canonical" href="{{ .Permalink }}">
+  <head itemscope itemtype="{{ .Site.BaseURL }}">
+    {{- partial "meta.html" . -}} {{ partial "site-schema.html" . }}
+    <link rel="canonical" href="{{ .Permalink }}" />
     {{ partial "css.html" . }}
   </head>
   <body>
@@ -14,8 +11,6 @@
       <div id="status"></div>
     </div>
 
-    {{- block "main" . -}} {{- end -}}
-
-    {{- partial "javascript.html" . -}}
+    {{- block "main" . -}} {{- end -}} {{- partial "javascript.html" . -}}
   </body>
 </html>

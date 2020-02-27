@@ -4,67 +4,23 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
 <!-- Title -->
-{{ if eq .URL "/" }}
-<title>{{.Site.Title }}</title>
-{{else if or (eq .URL "/posts/")  (eq .URL "/sessions/") (eq .URL "/about/") (eq .URL "/news/")}}
-{{- $section := .Section -}}
-{{ range .Site.Params.navbar.menu }}
-{{ if eq $section .name }}
-<title>{{ .title }} |شیرازلاگ</title>
-{{ end }} {{ end }} 
+<title>
+    {{ if .IsHome }}
+        {{ .Site.Title }}
+    {{ else }}
+        {{ .Title }} | {{ .Site.Title}}
+    {{ end }}
+</title>
 
-{{ else if .Title }}
-<title>{{ .Title }} | شیرازلاگ</title>
-
-{{ else }}
-<title>{{ .Site.Title }}</title>
-{{end}}
-
-<!-- Metadescription  & og:matedescription-->
-{{ if .Description }}
+<!-- Meta Description -->
 <meta name="description" content="{{ .Description }}"> 
-{{ else if eq .URL "/"}}
-<meta name="description" content="به شیرازلاگ خوش آمدید :) لاگ به معنی گروه کاربران گنو/لینوکس است و از افراد مختلف که به منظور تبادل اطلاعات در حوزه‌ی نرم‌افزارهای آزاد و متن‌باز دور هم جمع می‌شوند، ">
 
-{{ else if eq .URL "/posts/"}}
-<meta name="description" content="پست های آزاد در شیرازلاگ">
-
- {{ else if eq .URL "/sessions/"}}
-<meta name="description" content="جلسات شیرازلاگ"> 
-
-{{ else if eq .URL "/about/"}}
-<meta name="description" content="درباره شیرازلاگ">
-
-
-{{ else if eq .URL "/news/"}}
-<meta name="description" content="اخبار شیرازلاگ"> 
-
-{{ else }}
-<meta name="description" content="به شیرازلاگ خوش آمدید :) لاگ به معنی گروه کاربران گنو/لینوکس است و از افراد مختلف که به منظور تبادل اطلاعات در حوزه‌ی نرم‌افزارهای آزاد و متن‌باز دور هم جمع می‌شوند، ">
-
-{{ end }}
-
-<!-- meta Keywords -->
-{{ if .Keywords }}
-<meta name="keywords" content={{.Keywords}} /> 
-{{ else if eq .URL "/"}}
-<meta name="keywords" content="،شیرازلاگ،گروه کاربران گنو/لینوکس شیراز، نرم افزار آزاد،لینوکس،متن باز">
-{{ else if eq .URL "/posts/"}}
-<meta name="keywords" content="پست های آزاد در شیرازلاگ"> 
-{{ else if eq .URL "/sessions/"}}
-<meta name="keywords" content="جلسات شیرازلاگ"> 
-{{ else if eq .URL "/about/"}}
-<meta name="keywords" content="شیرازلاگ،اساسنامه شیرازلاگ،مرامنامه شیرازلاگ،درباره شیرازلاگ">
-{{ else if eq .URL "/news/"}}
-<meta name="keywords" content="،شیرازلاگ ،اخبار شیرازلاگ،رقابت بین مینی کامپیوترها ،Orange Pi one،Raspberry pi zero">
-{{ else }}
-<meta name="keywords" content="شیرازلاگ،گروه کاربران گنو/لینوکس شیراز، نرم افزار آزاد،لینوکس،متن باز">
-{{ end }}
+<!-- Meta Keywords -->
+<meta name="keywords" content='{{ delimit .Keywords ", " }}' /> 
 
 <!-- Opengraph -->
 <meta property="og:site_name" content="{{ .Site.Params.sitename }}" />
 {{ template "_internal/opengraph.html" . }}
 
 <!-- Twitter -->
-
 {{ template "_internal/twitter_cards.html" . }}
