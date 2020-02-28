@@ -16,6 +16,7 @@ $subtitle-line-height: 1.25 !default
 $subtitle-strong-color: $grey-darker !default
 $subtitle-strong-weight: $weight-semibold !default
 $subtitle-negative-margin: -1.25rem !default
+$subtitle-positive-margin: +1.25rem
 
 .title,
 .subtitle
@@ -43,8 +44,6 @@ $subtitle-negative-margin: -1.25rem !default
     font-weight: $title-strong-weight
   & + .highlight
     margin-top: -0.75rem
-  &:not(.is-spaced) + .subtitle
-    margin-top: $subtitle-negative-margin
   // Sizes
   @each $size in $sizes
     $i: index($sizes, $size)
@@ -61,6 +60,7 @@ $subtitle-negative-margin: -1.25rem !default
   strong
     color: $subtitle-strong-color
     font-weight: $subtitle-strong-weight
+  margin-top: $subtitle-positive-margin  
   &:not(.is-spaced) + .title
     margin-top: $subtitle-negative-margin
   // Sizes
