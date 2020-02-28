@@ -2,9 +2,11 @@
   <div class="container">
     <div class="columns">
       <div class="column">
-          {{- $baseurl := .Site.BaseURL -}}
-          {{- $logo := printf "%v%s" $baseurl .Site.Params.Sidebar.logo -}}
-          <img src="{{- $logo -}}">
+        {{- $baseurl := .Site.BaseURL -}} {{- $logo := printf "%v%s" $baseurl .Site.Params.Sidebar.logo -}}
+        <img
+          src="{{- $logo -}}"
+          alt="لوگو شیرازلاگ | گروه کاربران گنو/لینوکس شیراز"
+        />
       </div>
 
       <div class="column">
@@ -42,23 +44,6 @@
           </ul>
         </div>
       </div>
-
-      <!-- <div class="column">
-        <div class="footer-column">
-          <div class="footer-header">
-            <h3>کپی رایت</h3>
-          </div>
-          <ul class="link-list">
-            <li>
-              <a>
-                <span class="icon"><i class="fa fa-copyright"></i></span>
-                {{ .Site.Params.footer.copyright }}
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div> -->
-
     </div>
   </div>
 </footer>
