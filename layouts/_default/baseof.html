@@ -2,7 +2,7 @@
 <html lang="{{ .Site.LanguageCode }}" dir="rtl">
   <head>
     {{- partial "meta.html" . -}}
-    <title>{{- block "title" . -}}{{- if ne .Title .Site.Title -}}{{- .Title -}}&nbsp;|&nbsp;{{- end -}}{{- .Site.Title -}}{{- end -}}</title>
+    <title>{{- block "title" . -}}{{- end -}}</title>
     {{ partial "css.html" . }}
   </head>
   <body>
