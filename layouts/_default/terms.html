@@ -1,3 +1,7 @@
+{{- define "title" -}}
+	{{- .Data.Plural -}}{{- " | " -}}{{- .Site.Title -}}
+{{- end -}}
+
 {{- define "main" -}}
 
     {{- partial "navbar.html" . -}}

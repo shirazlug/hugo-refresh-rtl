@@ -55,7 +55,8 @@
 .section-title{
   border-bottom: 5px solid #F39200;
   border-radius: 5px;
-  display: inline;
+  /* display: inline; */
+  width: max-content;
   font-family: "Shabnam";
 }
 
