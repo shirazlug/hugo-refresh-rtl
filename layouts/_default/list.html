@@ -1,3 +1,14 @@
+{{- define "specific title" -}}
+	{{- $section := .Section -}}
+	{{- if eq $section "tags" -}}{{- "برچسب ها" -}}{{- else -}}
+		{{- range .Site.Params.navbar.menu -}}{{- if eq $section .name -}}{{- .title -}}{{- end -}}{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+{{- define "title" -}}
+	{{- block "specific title" . -}}{{- end -}}{{- " | " -}}{{- .Site.Title -}}
+{{- end -}}	
+
 {{- define "main" -}}
 
     {{- partial "navbar.html" . -}}
@@ -9,13 +20,8 @@
             <div class="column is-centered-tablet-portrait">
               
               <!-- Title -->
-              {{- $section := .Section -}}              
               <h1 class="title section-title">
-                {{ range .Site.Params.navbar.menu }}
-                  {{ if eq $section .name }}
-                    {{ .title }}
-                  {{ end }}
-                {{ end }}
+                {{- block "specific title" . -}}{{- end -}}
               </h1>
 
               <h5 class="subtitle is-5 is-muted">{{- .Params.Subtitle -}}</h5>
