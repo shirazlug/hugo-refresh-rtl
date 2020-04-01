@@ -2,15 +2,13 @@
 {{- $js2 := resources.Get "js/feather.4.22.0.js"                      }}
 {{- $js3 := resources.Get "js/modernizr-2.8.3.js"                     }}
 {{- $js4 := resources.Get "js/fresh_new.js"                           }}
-{{- $highlightJS := resources.Get "js/highlight.9.15.8.pack.js"               }}
-{{- $highlightLineNumbersJS := resources.Get "js/highlightjs-line-numbers.2.7.0.min.js"  }}
 {{- $js7 := resources.Get "js/fontawesome-all.min.js"  }}
 
 {{/*  Attempt to put all js in one file  */}}
 {{/*  https://discourse.gohugo.io/t/bundle-many-resources/13497  */}}
 
 {{- $.Scratch.Set "jslibs" slice -}}
-{{- $libs := slice $js1 $js2 $js3 $js4 $highlightJS $highlightLineNumbersJS $js7 -}}
+{{- $libs := slice $js1 $js2 $js3 $js4 $js7 -}}
 {{- range $libs -}}
     {{- $.Scratch.Add "jslibs" . -}}
 {{- end -}}
@@ -19,7 +17,7 @@
 
 {{/*  or  */}}
 
-{{- $jsCombined := slice $js1 $js2 $js3 $js4 $highlightJS $highlightLineNumbersJS $js7 | resources.Concat "js/combined_all.js" -}}
+{{- $jsCombined := slice $js1 $js2 $js3 $js4 $js7 | resources.Concat "js/combined_all.js" -}}
 {{- $jsmin      := $jsCombined | resources.Minify | resources.Fingerprint -}}
 
 {{/*  end  */}}
@@ -29,8 +27,6 @@
     {{- $js2 = $js2 | resources.Minify }}
     {{- $js3 = $js3 | resources.Minify }}
     {{- $js4 = $js4 | resources.Minify }}
-    {{- $highlightJS = $highlightJS | resources.Minify }}
-    {{- $highlightLineNumbersJS = $highlightLineNumbersJS | resources.Minify }}
     {{- $js7 = $js7 | resources.Minify }}
 {{- end -}}
 
@@ -39,8 +35,6 @@
     {{- $js2 = $js2 | resources.Fingerprint }}
     {{- $js3 = $js3 | resources.Fingerprint }}
     {{- $js4 = $js4 | resources.Fingerprint }}
-    {{- $highlightJS = $highlightJS | resources.Fingerprint }}
-    {{- $highlightLineNumbersJS = $highlightLineNumbersJS | resources.Fingerprint }}
     {{- $js7 = $js7 | resources.Fingerprint }}
 {{- end -}}
 
@@ -50,10 +44,6 @@
 <script src="{{- $js2.Permalink | relURL -}}" integrity="{{- $js2.Data.Integrity -}}"></script>
 <script src="{{- $js3.Permalink | relURL -}}" integrity="{{- $js3.Data.Integrity -}}"></script>
 <script src="{{- $js4.Permalink | relURL -}}" integrity="{{- $js4.Data.Integrity -}}"></script>
-{{- if .Params.needshighlight }}
-<script src="{{- $highlightJS.Permalink | relURL -}}" integrity="{{- $highlightJS.Data.Integrity -}}"></script>
-<script src="{{- $highlightLineNumbersJS.Permalink | relURL -}}" integrity="{{- $highlightLineNumbersJS.Data.Integrity -}}"></script>
-{{- end -}}
 <script src="{{- $js7.Permalink | relURL -}}" integrity="{{- $js7.Data.Integrity -}}"></script>
 
 {{- else -}}
@@ -62,21 +52,6 @@
 <script src="{{- $js2.Permalink | relURL -}}"></script>
 <script src="{{- $js3.Permalink | relURL -}}"></script>
 <script src="{{- $js4.Permalink | relURL -}}"></script>
-{{- with .Params.needshighlight }}
-<script src="{{- $highlightJS.Permalink | relURL -}}"></script>
-<script src="{{- $highlightLineNumbersJS.Permalink | relURL -}}"></script>
-{{- end -}}
 <script src="{{- $js7.Permalink | relURL -}}"></script>
 {{- end -}}
 
-{{- with .Params.needshighlight }}
-<script>hljs.initHighlightingOnLoad();</script>
-<script>hljs.initLineNumbersOnLoad();</script>
-<script>
-document.addEventListener('DOMContentLoaded', (event) => {
-    document.querySelectorAll('.codeinline').forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-  });
-</script>
-{{- end -}}

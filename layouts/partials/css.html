@@ -30,6 +30,7 @@
 {{- $css1 := resources.Get "css/monokai-sublime.9.15.8.min.css" -}}
 {{- $css2 := resources.Get "css/icons.css" -}}
 {{- $css3 := resources.Get "css/styles.css" -}}
+{{- $chromacss := resources.Get "css/chroma-highlight.css" -}}
 
 {{- if .Site.Params.cssMinify -}}
 
@@ -37,6 +38,7 @@
 {{- $css1 = $css1 | resources.Minify -}}
 {{- $css2 = $css2 | resources.Minify -}}
 {{- $css3 = $css3 | resources.Minify -}}
+{{- $chromacss = $chromacss | resources.Minify -}}
 
 {{- end -}}
 
@@ -46,23 +48,30 @@
 {{- $css1 = $css1 | resources.Fingerprint -}}
 {{- $css2 = $css2 | resources.Fingerprint -}}
 {{- $css3 = $css3 | resources.Fingerprint -}}
+{{- $chromacss = $chromacss | resources.Fingerprint -}}
 
 {{- end -}}
 
 {{- if .Site.Params.cssFingerprint -}}
 
 <link rel="stylesheet" type="text/css" href="{{- $css.Permalink  | relURL -}}" integrity="{{- $css.Data.Integrity -}}">
-<link rel="stylesheet" type="text/css" href="{{- $css1.Permalink | relURL -}}" integrity="{{- $css1.Data.Integrity -}}">
+<!--link rel="stylesheet" type="text/css" href="{{- $css1.Permalink | relURL -}}" integrity="{{- $css1.Data.Integrity -}}"-->
 <link rel="stylesheet" type="text/css" href="{{- $css2.Permalink | relURL -}}" integrity="{{- $css2.Data.Integrity -}}">
 <link rel="stylesheet" type="text/css" href="{{- $css3.Permalink | relURL -}}" integrity="{{- $css3.Data.Integrity -}}">
 
+{{- with .Params.needshighlight -}}
+<link rel="stylesheet" type="text/css" href="{{- $chromacss.Permalink | relURL -}}" integrity="{{- $chromacss.Data.Integrity -}}">
+{{- end -}}
 {{- else -}}
 
 <link rel="stylesheet" type="text/css" href="{{- $css.Permalink  | relURL -}}">
-<link rel="stylesheet" type="text/css" href="{{- $css1.Permalink | relURL -}}">
+<!--link rel="stylesheet" type="text/css" href="{{- $css1.Permalink | relURL -}}"-->
 <link rel="stylesheet" type="text/css" href="{{- $css2.Permalink | relURL -}}">
 <link rel="stylesheet" type="text/css" href="{{- $css3.Permalink | relURL -}}">
 
+{{- with .Params.needshighlight -}}
+<link rel="stylesheet" type="text/css" href="{{- $chromacss.Permalink | relURL -}}">
+{{- end -}}
 {{- end -}}
 
 {{/*  <link rel="stylesheet" type="text/css" href="{{- "css/bulma.css" | absURL -}}">  */}}
