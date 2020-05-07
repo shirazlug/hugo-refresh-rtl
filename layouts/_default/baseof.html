@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}" dir="rtl">
   <head itemscope itemtype="{{ .Site.BaseURL }}">
-    {{- partial "meta.html" . -}} {{ partial "site-schema.html" . }}
+    {{- partial "meta.html" . -}}
+    {{ partial "site-schema.html" . }}
+    {{ template "_internal/google_analytics.html" . }}
     <title>{{- block "title" . -}}{{- end -}}</title>
     <link rel="canonical" href="{{ .Permalink }}" />
     {{ partial "css.html" . }}
