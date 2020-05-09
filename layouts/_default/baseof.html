@@ -4,11 +4,13 @@
     {{- partial "meta.html" . -}}
     {{ partial "site-schema.html" . }}
     {{ template "_internal/google_analytics.html" . }}
+    {{ if .Site.Params.gtm_id}}{{- partial "gtm.html" . }}{{ end }}
     <title>{{- block "title" . -}}{{- end -}}</title>
     <link rel="canonical" href="{{ .Permalink }}" />
     {{ partial "css.html" . }}
   </head>
   <body>
+    {{ if .Site.Params.gtm_id}}<noscript><iframe src="//www.googletagmanager.com/ns.html?id={{ .Site.Params.gtm_id }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>{{ end }}
     <!-- Preloader -->
     <div id="preloader">
       <div id="status"></div>
