@@ -4,6 +4,7 @@
     {{- partial "meta.html" . -}}
     {{ partial "site-schema.html" . }}
     {{ template "_internal/google_analytics.html" . }}
+    {{ if .Site.Params.gtm_id}}{{- partial "gtm.html" . }}{{ end }}
     <title>{{- block "title" . -}}{{- end -}}</title>
     <link rel="canonical" href="{{ .Permalink }}" />
     {{ partial "css.html" . }}
