@@ -1,4 +1,4 @@
-{{ if not (in (.Site.BaseURL | string) "localhost") }}{{ if .Site.Params.gtm_id}}  <link href="https://www.googletagmanager.com" rel="preconnect" crossorigin>
+<!-- {{ if not (in (.Site.BaseURL | string) "localhost") }}{{ if .Site.Params.gtm_id}}  <link href="https://www.googletagmanager.com" rel="preconnect" crossorigin>
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">{{ end }}
 {{ if eq .Site.Params.gtm_datalayer "basic"}}  <script>
 	window.dataLayer = window.dataLayer || [];
@@ -26,4 +26,4 @@
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','{{ .Site.Params.gtm_id }}');</script>{{ end }}{{ end }}
+	})(window,document,'script','dataLayer','{{ .Site.Params.gtm_id }}');</script>{{ end }}{{ end }} -->

@@ -1,8 +1,11 @@
 <div class="sidebar" dir="ltr">
   <div class="sidebar-header">
     {{- $baseurl := .Site.BaseURL -}}
-    {{- $logo := printf "%v%s" $baseurl .Site.Params.Sidebar.logo -}}
-    <img src="{{- $logo -}}">
+    {{- $logo := printf "%v%s" $baseurl .Site.Params.Sidebar.logo -}}    
+    <img
+    src="{{- $logo -}}"
+    alt="لوگو شیرازلاگ | گروه کاربران گنو/لینوکس شیراز"
+  />
     <a class="sidebar-close" href="javascript:void(0);">
       <i data-feather="x"></i>
     </a>
