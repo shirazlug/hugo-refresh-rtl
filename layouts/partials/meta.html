@@ -12,25 +12,7 @@
 <meta name="keywords" content='{{ delimit .Keywords ", " }}' /> 
 
 <!-- OpenGraph Info -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="{{ if ne .URL "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}"/>
-<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}"/>
-<meta property="og:site_name" content="{{ .Site.Title }}"/>
-<meta property="og:url" content="{{ .Permalink }}"/>
-<meta property="og:locale" content="fa">
-{{ if .Params.og_image }}
-<meta property="og:image" content="https://shirazlug.ir{{ .Params.og_image | relURL }}"/>
-<meta property="og:image:secure_url" content="{{ .Params.og_image | absURL }}"/>
-{{ else }}
-<meta property="og:image" content="https://shirazlug.ir{{ .Site.Params.og_image | relURL }}"/>
-<meta property="og:image:secure_url" content="{{ .Site.Params.og_image | absURL }}"/>
-{{ end }}
-<meta property="og:type" content="website"/>
+{{ template "_internal/opengraph.html" . }}
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://shirazlug.ir{{ .Params.og_image | relURL }}" />
-<meta name="twitter:title" content="{{ if ne .URL "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}"/>
-<meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
-<meta name="twitter:creator" content="@shirazlug_ir" />
-<meta name="twitter:site" content="@shirazlug_ir" />
+{{ template "_internal/twitter_cards.html" . }}
