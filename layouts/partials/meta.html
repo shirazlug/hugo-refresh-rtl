@@ -6,10 +6,10 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
 <!-- Meta Description -->
-<meta name="description" content="{{ .Description }}">
+<meta name="description" content="{{ .Description }}"> 
 
 <!-- Meta Keywords -->
-<meta name="keywords" content='{{ delimit .Keywords ", " }}' />
+<meta name="keywords" content='{{ delimit .Keywords ", " }}' /> 
 
 <!-- OpenGraph Info -->
 <meta property="og:type" content="website" />
@@ -26,3 +26,12 @@
 <meta property="og:image:secure_url" content="{{ .Site.Params.og_image | absURL }}"/>
 {{ end }}
 <meta property="og:type" content="website"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:site" content="{{ .Site.Params.sitename }}">
+{{ if .Params.og_image }}
+<meta property="twitter:image" content="https://shirazlug.ir{{ .Params.og_image | relURL }}"/>
+{{ else }}
+<meta property="twitter:image" content="https://shirazlug.ir{{ .Site.Params.og_image | relURL }}"/>
+{{ end }}
+{{ template "_internal/twitter_cards.html" . }}
