@@ -2,8 +2,14 @@
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
-  "@type": "WebSite",
+  "@type": "Organization",
+  "name": "{{ .Site.Title }}",
   "url": "{{ .Site.BaseURL }}",
+  "address": "Iran, Fars, Shiraz",
+  "sameAs": [
+      "https://twitter.com/shirazlug_ir",
+      "https://www.linkedin.com/in/shirazlug/"
+  ],
   {{ if .Site.Params.author -}}
   "author": {
     "@type": "Person",
@@ -22,7 +28,6 @@
   {{ with .Site.Copyright -}}
   "license": "{{ . }}",
   {{- end }}
-  "name": "{{ .Site.Title }}"
 }
 </script>
 {{/*
