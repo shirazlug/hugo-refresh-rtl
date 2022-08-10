@@ -1,5 +1,5 @@
 ---
-title: "{{ replace .TranslationBaseName "session" "جلسه "}}"
+title: "{{ replace .TranslationBaseName "session" "نشست "}}"
 author: ""
 date: "yyyy-mm-dd"
 description: ""
