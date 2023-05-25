@@ -3,13 +3,26 @@
     <div class="columns">
       <div class="column is-centered-tablet-portrait">
         <h1 class="title is-2 section-title">{{- .Title -}}</h1>
-        <h5 class="subtitle is-5 is-muted">{{- .Params.Subtitle -}}</h5>
+        {{- if .Params.Subtitle -}}
+        <h5 class="subtitle is-5 is-muted">عنوان ارائه:&nbsp;{{- .Params.Subtitle -}}</h5>
+        {{- end -}}
+        {{- if .Params.presenter -}}
+        <div class="subtitle is-5 is-muted">ارائه دهنده:&nbsp;{{- .Params.presenter -}}</div>
+        {{- end -}}
+        {{- if .Params.description -}}
+        <div class="subtitle is-5 is-muted">توضیحات ارائه:&nbsp;{{- .Params.description -}}</div>
+        {{- end -}}
         <div class="divider"></div>
         {{/*  <section class="section content">  */}}
         <section class="section content has-text-justified">
           <!-- <div class="content"> -->
             {{- .Content -}}
           <!-- </div> -->
+          {{- if .Params.author -}}
+            <div class="column has-text-right shabnam is-centered-tablet-portrait">
+              ارسال کننده:&nbsp;{{- .Params.author -}}
+            </div>
+          {{- end -}}
         </section>
       </div>
     </div>
