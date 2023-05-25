@@ -14,6 +14,11 @@
         <p class="summary-summary shabnam">
             {{- if .Params.subtitle -}} {{- .Params.subtitle -}} {{- else }} {{- .Plain -}} {{- end -}}
         </p>
+        {{- if .Params.presenter -}}
+        <span class="summary-summary shabnam">
+            ارائه دهنده:&nbsp;{{- .Params.presenter -}}
+        </span>
+        {{- end -}}
 
         {{- if .Params.readmore -}}
         <div class="action has-text-left">
