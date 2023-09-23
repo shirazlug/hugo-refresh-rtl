@@ -38,7 +38,7 @@
           <ul class="link-list">
             {{ range .Site.Params.Footer.Social }}
             <li>
-              <a href="{{ .url }}" target="_blank">
+              <a rel="{{ .rel }}" href="{{ .url }}" target="_blank">
                 <span class="icon"><i class="{{ .icon }}"></i></span>
                 {{ .title }}
               </a>
